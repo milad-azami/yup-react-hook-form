@@ -7,4 +7,11 @@ let userSchema = object({
   website: string().url().nullable(),
 });
 
-export { userSchema };
+const fromSchema = object({
+  name: string().required("لطفا اسم را وارد کنید."),
+  email: string()
+    .email("لطفا ایمیل معتبر وارد کنید")
+    .required("ایمیل ضروری است"),
+}).required();
+
+export { userSchema, fromSchema };
