@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { userSchema } from "../schema";
 
 const mockUserData = {
@@ -10,14 +8,12 @@ const mockUserData = {
 };
 
 function Yup() {
-  useEffect(() => {
-    async function validate(data) {
-      const userValidation = await userSchema.validate(data);
-      console.log(userValidation);
-    }
+  async function validate(data) {
+    const userValidation = await userSchema.validate(data);
+    console.log(userValidation);
+  }
 
-    validate(mockUserData);
-  }, []);
+  validate(mockUserData);
 
   return <div>Yup</div>;
 }
